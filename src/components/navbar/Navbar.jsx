@@ -19,8 +19,17 @@ import Projects from "../Projects/Projects";
 const useStyles = theme => ({
     bar: {
         display: 'flex',
+        color: 'inherit',
         flexDirection: 'row',
         justifyContent: 'flex-end',
+    },
+    button: {
+      height: 'auto',
+      width: '10rem'
+    },
+    link: {
+        textDecoration: 'none',
+        color: '#fff',
     },
 });
 
@@ -31,12 +40,14 @@ class Navbar extends React.Component {
         return (
             <Router>
                 <div>
-                    <AppBar position="static" className={classes.bar}>
+                    <AppBar color='transparent' elevation='0' position="static" className={classes.bar}>
                         <Toolbar>
-                            <Button>
-                                <Link to="/projects">Projects</Link>
+                            <Button className={classes.button}>
+                                <Link to="/projects" className={classes.link}>Projects</Link>
                             </Button>
-                            <Link to="/about">About</Link>
+                            <Button className={classes.button}>
+                                <Link to="/about" className={classes.link}>About</Link>
+                            </Button>
                         </Toolbar>
                     </AppBar>
                 </div>

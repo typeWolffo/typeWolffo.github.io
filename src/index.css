@@ -5,7 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  /* background-image: url(../assets/wilk3.png); */
+  background-size: cover;
+  background: rgb(20, 20, 20) no-repeat center;
+  /*background: linear-gradient(49deg, rgba(36,36,36,1) 0%, rgba(15,15,15,1) 100%);*/
 }
 
 code {
