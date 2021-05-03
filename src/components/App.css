@@ -1,11 +1,11 @@
 .App {
   text-align: center;
-  background-image: url(../assets/wilk3.png);
+  /* background-image: url(../assets/wilk3.png); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-color: #242424;
-}
+  background-color: rgb(36,36,36);
+  background-color: linear-gradient(49deg, rgba(36,36,36,1) 0%, rgba(15,15,15,1) 100%);}
 
 .App-logo {
   height: 40vmin;
