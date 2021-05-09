@@ -1,0 +1,13 @@
+html {
+  font-size: 18px;
+}
+
+body {
+  background-image: url("/src/assets/bg.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/*# sourceMappingURL=app.css.map */
