@@ -5,7 +5,9 @@ class Projects extends React.Component {
         return (
             <div>
             <h1>Projects</h1>
-            <Tile {...this.setState({title: 'test'})}/>
+            <Tile {...this.props}>
+                <this.props.title: 'test'>
+            </Tile>
             </div>
         )
     }

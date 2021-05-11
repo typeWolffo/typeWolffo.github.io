@@ -18,13 +18,19 @@ const useStyles = makeStyles({
 });
 
 class Tile extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            bg: '',
-            title: '',
-            desc: '',
-        }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         bg: '',
+    //         title: '',
+    //         desc: '',
+    //     }
+    // }
+
+    props = {
+        bg: '',
+        title: '',
+        desc: '',
     }
 
     render() {
@@ -35,14 +41,14 @@ class Tile extends React.Component {
                 <CardActionArea>
                     <CardMedia
                         className={classes.media}
-                        image={this.state.bg}
+                        image={this.props.bg}
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
-                            {this.state.title}
+                            {this.props.title}
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
-                            {this.state.desc}
+                            {this.props.desc}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
