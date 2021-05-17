@@ -36,7 +36,6 @@ const useStyles = theme => ({
 
 class Navbar extends React.Component {
     render() {
-
         const {classes} = this.props;
         return (
             <Router>

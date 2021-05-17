@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import "@fontsource/inter"
 import {Link} from "react-router-dom";
 
+
 const useStyles = makeStyles({
 
     root: {
