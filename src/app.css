@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap");
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #121212;
 }

@@ -24,8 +24,9 @@ const useStyles = theme => ({
         justifyContent: 'flex-end',
     },
     button: {
-      height: 'auto',
-      width: '10rem'
+        height: 'auto',
+        width: '10rem',
+        color: '#fff'
     },
     link: {
         textDecoration: 'none',
@@ -42,11 +43,11 @@ class Navbar extends React.Component {
                 <div>
                     <AppBar color='transparent' elevation='0' position="static" className={classes.bar}>
                         <Toolbar>
-                            <Button className={classes.button}>
-                                <Link to="/projects" className={classes.link}>Projects</Link>
+                            <Button className={classes.button} component={Link} to="/projects">
+                                Projects
                             </Button>
-                            <Button className={classes.button}>
-                                <Link to="/about" className={classes.link}>About</Link>
+                            <Button className={classes.button} component={Link} to='/about'>
+                                About
                             </Button>
                         </Toolbar>
                     </AppBar>
