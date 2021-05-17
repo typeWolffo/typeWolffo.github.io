@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {makeStyles, withStyles} from '@material-ui/core/styles';
+import React from "react";
+import {makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -7,62 +7,48 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import "@fontsource/inter"
 
 const useStyles = makeStyles({
+
     root: {
         maxWidth: 345,
+        width: 345,
+        fontFamily: "Inter",
+        boxShadow: '3px 3px 10px #000',
+        margin: '10px',
     },
     media: {
         height: 140,
     },
+    cardContent: {
+        backgroundColor: "#1a1a1a",
+        color: "#fff"
+    }
 });
 
-class Tile extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         bg: '',
-    //         title: '',
-    //         desc: '',
-    //     }
-    // }
+export default function Tile(props) {
+    const classes = useStyles();
 
-    props = {
-        bg: '',
-        title: '',
-        desc: '',
-    }
-
-    render() {
-        const {classes} = this.props;
-
-        return (
+    return (
+        // <div className={classes.wrapper}>
             <Card className={classes.root}>
                 <CardActionArea>
                     <CardMedia
                         className={classes.media}
-                        image={this.props.bg}
+                        image={props.imagePath}
+                        title={props.title}
                     />
-                    <CardContent>
+                    <CardContent className={classes.cardContent}>
                         <Typography gutterBottom variant="h5" component="h2">
-                            {this.props.title}
+                            {props.title}
                         </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            {this.props.desc}
+                        <Typography variant="body2" component="p">
+                            {props.desc}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
-                {/*<CardActions>*/}
-                {/*    <Button size="small" color="primary">*/}
-                {/*        Share*/}
-                {/*    </Button>*/}
-                {/*    <Button size="small" color="primary">*/}
-                {/*        Learn More*/}
-                {/*    </Button>*/}
-                {/*</CardActions>*/}
             </Card>
-        );
-    }
+        // </div>
+    )
 }
-
-export default withStyles(useStyles)(Tile);
