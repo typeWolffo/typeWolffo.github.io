@@ -13,15 +13,30 @@ import {
     Link
 } from "react-router-dom";
 
+import Logo from "../../assets/logo.png"
 import About from "../About/About";
 import Projects from "../Projects/Projects";
+import Home from "../Home/Home";
 
 const useStyles = theme => ({
     bar: {
         display: 'flex',
         color: 'inherit',
         flexDirection: 'row',
-        justifyContent: 'flex-end',
+        justifyContent: 'space-between',
+        height: '60px',
+        border: 'solid red 1px'
+    },
+    logo: {
+        maxHeight: '60px',
+        height: 'auto',
+        border: 'solid 1px blue',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        '& img': {
+            height: '80%'
+        }
     },
     button: {
         height: 'auto',
@@ -41,6 +56,9 @@ class Navbar extends React.Component {
             <Router>
                 <div>
                     <AppBar color='transparent' elevation='0' position="static" className={classes.bar}>
+                        <Link to="/home" className={classes.logo}>
+                            <img src={Logo} alt="typeWolffo" />
+                        </Link>
                         <Toolbar>
                             <Button className={classes.button} component={Link} to="/projects">
                                 Projects
@@ -52,6 +70,9 @@ class Navbar extends React.Component {
                     </AppBar>
                 </div>
                 <Switch>
+                    <Route path="/home">
+                        <Home/>
+                    </Route>
                     <Route path="/about">
                         <About/>
                     </Route>

@@ -13,10 +13,10 @@ const useStyles = makeStyles({
         color: '#fff',
     },
     first: {
-        fontFamily: 'Fira Mono'
+        fontFamily: 'inter'
     },
     second: {
-        fontFamily: 'inter',
+        fontFamily: 'Fira Mono',
 
     },
     third: {
@@ -26,16 +26,23 @@ const useStyles = makeStyles({
 })
 
 export default function Home() {
-    const styles = useStyles();
+    const classes = useStyles();
     return (
-        <div className={styles.root}>
+        <div className={classes.root}>
+            <Typography variant="h1" component="h1" className={classes.first}>typeWolffo</Typography>
             <Typed
-                strings={['Kodował']}
-                typeSpeed={40}
+                strings={[
+                    'Kodował Wilk razy kilka...',
+                    'Człowiek człowiekowi wilkiem, a Wilk człowiekowi koduje.',
+                    'Nie taki Wilk straszny jak mi kodują.',
+                    'I Wilk syty i kod napisany.'
+                ]}
+                typeSpeed={70}
+                backSpeed={20}
+                backDelay={1400}
+                loop
+                className={classes.second}
             />
-            {/*<Typography variant="h4" component="h4" className={styles.first}>Kodował</Typography>*/}
-            <Typography variant="h1" component="h1" className={styles.second}>Wilk</Typography>
-            <Typography variant="h4" component="h4" className={styles.third}>razy kilka...</Typography>
         </div>
     )
 }
