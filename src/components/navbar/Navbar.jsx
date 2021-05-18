@@ -1,41 +1,52 @@
-import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import React from 'react';
+import {makeStyles} from "@material-ui/core";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link
 } from "react-router-dom";
+import {
+    BrowserView,
+    MobileView,
+    isBrowser,
+    isMobile
+} from "react-device-detect";
+import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
-import Logo from "../../assets/logo.png"
+
+import Logo from "../../assets/logov3.png"
 import About from "../About/About";
 import Projects from "../Projects/Projects";
 import Home from "../Home/Home";
 
-const useStyles = theme => ({
+
+const useStyles = makeStyles({
     bar: {
         display: 'flex',
         color: 'inherit',
         flexDirection: 'row',
         justifyContent: 'space-between',
         height: '60px',
-        border: 'solid red 1px'
+        flexWrap: 'wrap'
     },
     logo: {
         maxHeight: '60px',
         height: 'auto',
-        border: 'solid 1px blue',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+
         '& img': {
-            height: '80%'
+            height: '70%',
         }
     },
     button: {
@@ -47,18 +58,63 @@ const useStyles = theme => ({
         textDecoration: 'none',
         color: '#fff',
     },
+    list: {
+        width: 250,
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#161616',
+        color: '#fff'
+    },
+    hamburger: {
+        color: '#fff'
+    }
 });
 
-class Navbar extends React.Component {
-    render() {
-        const {classes} = this.props;
-        return (
-            <Router>
-                <div>
-                    <AppBar color='transparent' elevation='0' position="static" className={classes.bar}>
-                        <Link to="/home" className={classes.logo}>
-                            <img src={Logo} alt="typeWolffo" />
-                        </Link>
+
+export default function Navbar() {
+    const classes = useStyles();
+    const [state, setState] = React.useState({
+        right: false,
+    });
+
+    const toggleDrawer = (right, open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setState({...state, [right]: open});
+    };
+
+    const list = (right) => (
+        <div
+            className={classes.list}
+            role="presentation"
+            onClick={toggleDrawer(right, false)}
+            onKeyDown={toggleDrawer(right, false)}
+        >
+            <List>
+                <ListItem button key="Projects" component={Link} to='/projects'>
+                    <ListItemText primary="Projects"/>
+                </ListItem>
+                <ListItem button key="About" component={Link} to='/about'>
+                    <ListItemText primary="About"/>
+                </ListItem>
+            </List>
+
+        </div>
+    );
+
+
+    return (
+        <Router>
+            <div>
+                <AppBar color='transparent' position="static" className={classes.bar}>
+                    <Link to="/" className={classes.logo}>
+                        <img src={Logo} alt="typeWolffo"/>
+                    </Link>
+                    <BrowserView>
                         <Toolbar>
                             <Button className={classes.button} component={Link} to="/projects">
                                 Projects
@@ -67,22 +123,37 @@ class Navbar extends React.Component {
                                 About
                             </Button>
                         </Toolbar>
-                    </AppBar>
-                </div>
-                <Switch>
-                    <Route path="/home">
-                        <Home/>
-                    </Route>
-                    <Route path="/about">
-                        <About/>
-                    </Route>
-                    <Route path="/projects">
-                        <Projects/>
-                    </Route>
-                </Switch>
-            </Router>
-        )
-    }
+                    </BrowserView>
+
+                    <MobileView>
+                        <div>
+                            {['right',].map((anchor) => (
+                                <React.Fragment key={anchor}>
+                                    <Button onClick={toggleDrawer(anchor, true)}>
+                                        <MenuRoundedIcon className={classes.hamburger} fontSize="large"/>
+                                    </Button>
+                                    <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+                                        {list(anchor)}
+                                    </Drawer>
+                                </React.Fragment>
+                            ))}
+                        </div>
+                    </MobileView>
+                </AppBar>
+            </div>
+
+            <Switch>
+                <Route path="/about">
+                    <About/>
+                </Route>
+                <Route path="/projects">
+                    <Projects/>
+                </Route>
+                <Route path="/">
+                    <Home/>
+                </Route>
+            </Switch>
+        </Router>
+    )
 }
 
-export default withStyles(useStyles)(Navbar);
