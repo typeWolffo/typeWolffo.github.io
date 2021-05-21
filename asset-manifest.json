@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.3d30661d.chunk.css",
-    "main.js": "/static/js/main.48c1deea.chunk.js",
-    "main.js.map": "/static/js/main.48c1deea.chunk.js.map",
+    "main.js": "/static/js/main.351422a7.chunk.js",
+    "main.js.map": "/static/js/main.351422a7.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.96dcbe81.js",
     "runtime-main.js.map": "/static/js/runtime-main.96dcbe81.js.map",
     "static/css/2.83b62fed.chunk.css": "/static/css/2.83b62fed.chunk.css",
-    "static/js/2.cc09dce2.chunk.js": "/static/js/2.cc09dce2.chunk.js",
-    "static/js/2.cc09dce2.chunk.js.map": "/static/js/2.cc09dce2.chunk.js.map",
+    "static/js/2.c7ae95f6.chunk.js": "/static/js/2.c7ae95f6.chunk.js",
+    "static/js/2.c7ae95f6.chunk.js.map": "/static/js/2.c7ae95f6.chunk.js.map",
     "static/js/3.1a636fd1.chunk.js": "/static/js/3.1a636fd1.chunk.js",
     "static/js/3.1a636fd1.chunk.js.map": "/static/js/3.1a636fd1.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.83b62fed.chunk.css.map": "/static/css/2.83b62fed.chunk.css.map",
     "static/css/main.3d30661d.chunk.css.map": "/static/css/main.3d30661d.chunk.css.map",
-    "static/js/2.cc09dce2.chunk.js.LICENSE.txt": "/static/js/2.cc09dce2.chunk.js.LICENSE.txt",
+    "static/js/2.c7ae95f6.chunk.js.LICENSE.txt": "/static/js/2.c7ae95f6.chunk.js.LICENSE.txt",
     "static/media/bgtest.3c6e39e6.jpg": "/static/media/bgtest.3c6e39e6.jpg",
     "static/media/fc.05c4ff1e.png": "/static/media/fc.05c4ff1e.png",
     "static/media/index.css": "/static/media/overpass-mono-latin-ext-400-normal.8c91ea6d.woff2"
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.96dcbe81.js",
     "static/css/2.83b62fed.chunk.css",
-    "static/js/2.cc09dce2.chunk.js",
+    "static/js/2.c7ae95f6.chunk.js",
     "static/css/main.3d30661d.chunk.css",
-    "static/js/main.48c1deea.chunk.js"
+    "static/js/main.351422a7.chunk.js"
   ]
 }
