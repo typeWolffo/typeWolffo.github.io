@@ -22,7 +22,6 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TelegramIcon from '@material-ui/icons/Telegram';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import Wolfbg from '../../assets/wolf.svg';
 
 const useStyles = makeStyles({
     root: {
