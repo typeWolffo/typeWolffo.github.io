@@ -1,12 +1,10 @@
 import React from "react";
-import {Container, Divider, Typography} from "@material-ui/core";
+import {Container, Typography} from "@material-ui/core";
 import {makeStyles, styled} from "@material-ui/styles";
 import Typed from 'react-typed';
 import {
     BrowserView,
     MobileView,
-    isBrowser,
-    isMobile
 } from "react-device-detect";
 import {Link} from "react-router-dom";
 import Particles from 'react-particles-js';
@@ -43,10 +41,8 @@ const useStyles = makeStyles({
         fontFamily: 'Overpass Mono',
         fontSize: '30px'
     },
-
     second: {
         fontFamily: 'Fira Mono',
-
     },
     container2: {
         height: '40vh',
@@ -54,18 +50,13 @@ const useStyles = makeStyles({
         justifyContent: "center",
         flexDirection: "column",
         alignItems: "flex-start",
-
     },
     socialText: {
         fontFamily: 'Overpass Mono'
-
     },
     socialIcons: {
         color: '#fff',
-        // width: '50vw',
         display: "flex",
-        // justifyContent: "space-around",
-        // border: 'solid 1px red'
     },
     particles: {
         position: "absolute",
@@ -82,7 +73,6 @@ const Slink = styled(Link)({
 export default function Home() {
     const classes = useStyles();
 
-
     return (
         <div className={classes.root}>
             <Particles
@@ -91,7 +81,6 @@ export default function Home() {
                         color: {
                             value: "#ffffff",
                             opacity: 0.5,
-
                         },
                         links: {
                             color: "#ffffff",
@@ -122,7 +111,8 @@ export default function Home() {
                         }
                     }
                 }}
-            className={classes.particles}/>
+            className={classes.particles}
+            />
             <Container className={classes.container1}>
                 <BrowserView>
                     <Typography variant="h1" component="h1" className={classes.b}>{`<typeWolffo />`}</Typography>

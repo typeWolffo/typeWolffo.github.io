@@ -2,7 +2,6 @@ import React from 'react';
 import {makeStyles} from "@material-ui/core";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import {
     BrowserRouter as Router,
@@ -13,8 +12,6 @@ import {
 import {
     BrowserView,
     MobileView,
-    isBrowser,
-    isMobile
 } from "react-device-detect";
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 import Drawer from '@material-ui/core/Drawer';
@@ -22,12 +19,10 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-
 import Logo from "../../assets/logov3.png"
 import About from "../About/About";
 import Projects from "../Projects/Projects";
 import Home from "../Home/Home";
-
 
 const useStyles = makeStyles({
     bar: {
@@ -35,8 +30,10 @@ const useStyles = makeStyles({
         color: 'inherit',
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems: 'center',
         height: '60px',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        position: 'fixed'
     },
     logo: {
         maxHeight: '60px',
@@ -44,7 +41,6 @@ const useStyles = makeStyles({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-
         '& img': {
             height: '70%',
         }
@@ -83,7 +79,6 @@ export default function Navbar() {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
-
         setState({...state, [right]: open});
     };
 
@@ -106,7 +101,6 @@ export default function Navbar() {
         </div>
     );
 
-
     return (
         <Router>
             <div>
@@ -124,7 +118,6 @@ export default function Navbar() {
                             </Button>
                         </Toolbar>
                     </BrowserView>
-
                     <MobileView>
                         <div>
                             {['right',].map((anchor) => (
@@ -141,7 +134,6 @@ export default function Navbar() {
                     </MobileView>
                 </AppBar>
             </div>
-
             <Switch>
                 <Route path="/about">
                     <About/>

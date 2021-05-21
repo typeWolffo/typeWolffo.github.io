@@ -1,13 +1,10 @@
-import React, {Component} from "react";
+import React from "react";
 import {Avatar, Container, Grow} from "@material-ui/core";
-import Typed from "react-typed";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import {
     BrowserView,
     MobileView,
-    isBrowser,
-    isMobile
 } from "react-device-detect";
 
 // fonts
@@ -50,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
         color: '#fff',
         height: 'auto',
         display: 'flex',
+        alignItems: 'center',
         flexDirection: "column",
         minWidth: '320px',
     },
@@ -119,10 +117,10 @@ export default function About() {
                     <div className={classes.root}>
                         <Container className={classes.left}>
                             <div className={classes.wrapper}>
-                                <Typography variant="span" className={classes.text1}>JavaScript</Typography>
-                                <Typography variant="span" className={classes.text1}>React</Typography>
-                                <Typography variant="span" className={classes.text1}>Front - End</Typography>
-                                <Typography variant="span" className={classes.text2}>{`<Jakub Wilk/>`}</Typography>
+                                <Typography variant="body2" className={classes.text1}>JavaScript</Typography>
+                                <Typography variant="body2" className={classes.text1}>React</Typography>
+                                <Typography variant="body2" className={classes.text1}>Front - End</Typography>
+                                <Typography variant="body2" className={classes.text2}>{`<Jakub Wilk/>`}</Typography>
                             </div>
                         </Container>
                         <Container className={classes.right}>
