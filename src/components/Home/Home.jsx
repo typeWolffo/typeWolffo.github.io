@@ -26,6 +26,8 @@ const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'column',
         color: '#fff',
+        marginTop: '60px'
+
     },
     container1: {
         height: '40vh',

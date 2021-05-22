@@ -1,11 +1,14 @@
 import React from "react";
-import {Avatar, Container, Grow} from "@material-ui/core";
+import {Avatar, ButtonBase, ButtonGroup, Container, Grow, IconButton} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import {
     BrowserView,
     MobileView,
 } from "react-device-detect";
+import Icon from '@material-ui/core/Icon';
+import {loadCSS} from 'fg-loadcss';
+
 
 // fonts
 import "@fontsource/inter";
@@ -19,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'row',
         height: 'calc(100vh - 60px)',
         flexWrap: 'wrap',
+        marginTop: '60px'
     },
     left: {
         width: '50vw',
@@ -27,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: "column",
         minWidth: '466px',
+
     },
     right: {
         width: '50vw',
@@ -85,6 +90,31 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '52px',
         fontWeight: 700
     },
+    iconWrapper: {
+        display: "flex",
+        flexDirection: "column",
+        width: '100%',
+        justifyContent: "center",
+        maxHeight: '150px',
+        alignItems: "center"
+    },
+    iconTitle: {
+        color: '#fff',
+    },
+    iconSet: {
+        margin: '10px 0'
+    },
+    icon: {
+        color: '#fff',
+        padding: '20px',
+        "& > *": {
+            fontSize: '60px',
+        }
+    },
+    iconm: {
+        color: '#fff',
+        padding: '0',
+    },
     avatarm: {
         width: theme.spacing(20),
         height: theme.spacing(20),
@@ -98,17 +128,73 @@ const useStyles = makeStyles((theme) => ({
     },
     text1m: {
         fontFamily: 'inter',
-        fontSize: '26px',
+        fontSize: '18px',
     },
     text2m: {
         fontFamily: 'overpass mono',
-        fontSize: '32px',
+        fontSize: '22px',
         fontWeight: 700
     },
 }))
 
 export default function About() {
     const classes = useStyles();
+
+    React.useEffect(() => {
+        const node = loadCSS(
+            'https://use.fontawesome.com/releases/v5.12.0/css/all.css',
+            document.querySelector('#font-awesome-css'),
+        );
+
+        return () => {
+            node.parentNode.removeChild(node);
+        };
+    }, []);
+
+    const tech = () => (
+        <div className={classes.iconWrapper}>
+            <BrowserView>
+                <Typography variant={"h4"} className={classes.iconTitle}>Technology I work with:</Typography>
+                <ButtonGroup className={classes.iconSet}>
+                    <IconButton className={classes.icon}>
+                        <Icon className="fab fa-js" fontSize={"inherit"}/>
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                        <Icon className="fab fa-react" fontSize={"inherit"}/>
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                        <Icon className="fab fa-node-js" fontSize={"inherit"}/>
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                        <Icon className="fab fa-sass" fontSize={"inherit"}/>
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                        <Icon className="fab fa-ubuntu" fontSize={"inherit"}/>
+                    </IconButton>
+                </ButtonGroup>
+            </BrowserView>
+            <MobileView>
+                <Typography variant={"subtitle1"} className={classes.iconTitle}>Technology I work with:</Typography>
+                <ButtonGroup className={classes.iconSet}>
+                    <IconButton className={classes.iconm}>
+                        <Icon className="fab fa-js" fontSize={"large"}/>
+                    </IconButton>
+                    <IconButton className={classes.iconm}>
+                        <Icon className="fab fa-react" fontSize={"large"}/>
+                    </IconButton>
+                    <IconButton className={classes.iconm}>
+                        <Icon className="fab fa-node-js" fontSize={"large"}/>
+                    </IconButton>
+                    <IconButton className={classes.iconm}>
+                        <Icon className="fab fa-sass" fontSize={"large"}/>
+                    </IconButton>
+                    <IconButton className={classes.iconm}>
+                        <Icon className="fab fa-ubuntu" fontSize={"large"}/>
+                    </IconButton>
+                </ButtonGroup>
+            </MobileView>
+        </div>
+    )
 
     return (
         <>
@@ -126,6 +212,7 @@ export default function About() {
                         <Container className={classes.right}>
                             <Avatar src={Fc} alt="" className={classes.avatar}/>
                         </Container>
+                        {tech()}
                     </div>
                 </Grow>
             </BrowserView>
@@ -143,9 +230,11 @@ export default function About() {
                         <Container className={classes.rightm}>
                             <Avatar src={Fc} alt="" className={classes.avatarm}/>
                         </Container>
+                        {tech()}
                     </div>
                 </Grow>
             </MobileView>
         </>
     )
+
 }

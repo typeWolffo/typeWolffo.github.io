@@ -14,13 +14,14 @@ const useStyles = makeStyles({
         width: "100vw",
         height: "100vh",
         flexDirection: "column",
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: '60px'
     },
     wrapper: {
         display: 'flex',
         flexWrap: 'wrap',
         width: "80%",
-        height: 'auto',
+        height: '100%',
         justifyContent: "space-around",
         alignSelf: "center",
         margin: "10px 0",
