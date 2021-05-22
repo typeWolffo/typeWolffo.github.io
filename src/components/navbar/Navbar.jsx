@@ -33,7 +33,8 @@ const useStyles = makeStyles({
         alignItems: 'center',
         height: '60px',
         flexWrap: 'wrap',
-        position: 'fixed'
+        position: 'fixed',
+        backgroundColor: '#121212'
     },
     logo: {
         maxHeight: '60px',
@@ -104,7 +105,7 @@ export default function Navbar() {
     return (
         <Router>
             <div>
-                <AppBar color='transparent' position="static" className={classes.bar}>
+                <AppBar position="static" className={classes.bar}>
                     <Link to="/" className={classes.logo}>
                         <img src={Logo} alt="typeWolffo"/>
                     </Link>
